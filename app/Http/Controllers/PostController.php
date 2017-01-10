@@ -20,7 +20,8 @@ class PostController extends Controller
 //    ]]);
 //    }
 
-    public function index(){
+    public function index()
+    {
 
         $posts = Post::all();
 
@@ -28,7 +29,8 @@ class PostController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         if (! $user = JWTAuth::parseToken()->authenticate()){
             return response()->json(['msg' => 'User not found'], 404);
@@ -46,12 +48,14 @@ class PostController extends Controller
 
     }
 
-        public function show ($id){
+        public function show ($id)
+        {
             $post = Post::find($id);
             return response()->json($post,200);
         }
 
-        public function edit ($id){
+        public function edit ($id)
+        {
             $post = Post::find($id);
             return response()->json($post,200);
         }
@@ -70,7 +74,17 @@ class PostController extends Controller
     public function destroy($id){
         $post = Post::find($id);
         $post->delete();
-        return response()->json("DELETED",200); }
+        return response()->json("DELETED",200);
+    }
+
+    public function view_post($id){
+//        $user = User::find($id);
+//        $posts = $user->posts()->get();
+        $posts = Post::where('user_id','=', $id)->get();
+//        dd($posts);
+
+        return response()->json($posts,200);
+    }
 
 
 }

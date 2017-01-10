@@ -1,5 +1,5 @@
 import {FETCH_POST,ADD_POST,POST_SHOW,EDIT_POST,UPDATE_POST,FETCH_POST_SUCCESS,EDIT_POST_SUCCESS,
-    POST_SHOW_SUCCESS,UPDATE_POST_SUCCESS,USER_INFO,USER_INFO_SUCCESS} from '../actions/types';
+    POST_SHOW_SUCCESS,UPDATE_POST_SUCCESS,USER_INFO,USER_INFO_SUCCESS, USER_POST, USER_POST_SUCCESS} from '../actions/types';
 
 const INITIAL_STATE = {
     postsList:{posts:[],error:null,loading:false},
@@ -13,6 +13,10 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE,action){
     switch (action.type) {
+        case USER_POST:
+            return { ...state, postsList: {posts: [], error:null, loading:true}};
+        case USER_POST_SUCCESS:
+            return { ...state, postsList:{posts:action.payload.data,error:null,loading:false}};
       case FETCH_POST:
         return { ...state, postsList:{posts:[],error:null,loading:true}};     
       case FETCH_POST_SUCCESS:

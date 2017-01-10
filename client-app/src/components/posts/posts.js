@@ -3,8 +3,18 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/index';
 import {Link} from 'react-router';
 import spinner from 'react-loader';
+import ImageLoader from 'react-imageloader';
+var Packery = require('react-packery-component')(React);
+
+var packeryOptions = {
+    transitionDuration: 0,
+    gutter: 10,
+    // rowHeight: 60,
+    // columnWidth: 60
+};
 
 class Posts extends Component {
+
 
   componentWillMount(){
   this.props.fetchPost();
@@ -24,15 +34,19 @@ class Posts extends Component {
     return posts.map((post) => {
       return (
 
-        <div className="card col-md-3 col-sm-6 text-xs-center">
-            <Link to={"posts/"+post.id}>
-            <img className="card-img-top" src={post.body} alt="Book image" height="230" width="230"> </img>
-            </Link>
-            <div className="card-block">
-            <h4 className="card-title"><center>{ post.title }</center></h4>
-        </div>
-            {this.handleEditButton(post)}
-        </div>
+          <div className="card cardStyle" key={post.id}>
+              <Link to={"posts/"+post.id}>
+                  <img className="card-img-top" width="240" src={post.body} alt="Book image"> </img>
+              </Link>
+              <div className="card-block">
+                  <h4 className="card-title"><center>{ post.title }</center></h4>
+
+                  <Link to={"user/"+post.user_id}>
+                      <span className="label label-default"> By: {post.name} </span>
+                  </Link>
+
+              </div>
+          </div>
       );
     });
   }
@@ -43,11 +57,17 @@ class Posts extends Component {
             return <div className="loader"></div>;
         }
         return (
-                <div>
-
+            <Packery
+                className={'grid'} // default ''
+                elementType={'div'} // default 'div'
+                options={packeryOptions} // default {}
+                disableImagesLoaded={false} // default false
+                updateOnEachImageLoad={true} // default false and works only if disableImagesLoaded is false
+            >
+                <div className="grid-sizer"></div>
                 {this.renderPosts(posts)}
 
-                </div>
+            </Packery>
         );
 
     }

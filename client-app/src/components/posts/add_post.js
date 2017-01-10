@@ -21,12 +21,12 @@ this.context.router.push('/posts');
                 <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
                 <fieldset className="form-group">
                   <label>Title:</label>
-                  <input {...title} className="form-control" placeholder="Enter title of book"/>
+                  <input {...title} className="form-control" placeholder="Enter title..."/>
                   {title.touched && title.error && <div className="text-danger">{title.error}</div>}
                   </fieldset>
                 <fieldset className="form-group">
-                  <label>Book Image:</label>
-                  <input {...body} type="url" className="form-control" placeholder="Enter image URL of book cover"/>
+                  <label>Pin Image URL:</label>
+                  <input {...body} type="url" className="form-control" placeholder="Enter image URL..."/>
                   {body.touched && body.error && <div className="text-danger">{body.error}</div>}
                 </fieldset>
                  <button className="btn btn-success">Add</button>

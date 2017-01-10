@@ -3,7 +3,7 @@ import jwtdecode from 'jwt-decode';
 import {browserHistory} from 'react-router';
 import {AUTH_USER,AUTH_ERROR,LOGOUT_USER,FETCH_POST,ADD_POST,POST_SHOW,DELETE_POST,EDIT_POST,
     UPDATE_POST,FETCH_POST_SUCCESS,EDIT_POST_SUCCESS,POST_SHOW_SUCCESS,UPDATE_POST_SUCCESS,
-USER_INFO_SUCCESS,USER_INFO} from './types';
+USER_INFO_SUCCESS,USER_INFO, USER_POST, USER_POST_SUCCESS} from './types';
 const ROOT_URL = 'http://pinterest.dev';
 export function loginUser({email,password}){
   return function(dispatch){
@@ -22,6 +22,8 @@ export function loginUser({email,password}){
   }
 
 }
+
+
 
 
 export function userInfo(){
@@ -174,9 +176,22 @@ export function logoutUser() {
   return { type: LOGOUT_USER };
 }
 
-export function selectBook(book) {
+export function UserPost(id){
+    return dispatch =>{
+        dispatch({type:USER_POST});
+        axios.get(`${ROOT_URL}/api/user/${id}`,{
+                headers: { authorization: localStorage.getItem('token') }
+            })
+            .then(response =>{
+                dispatch(UserPostSuccess(response));
+            })
+
+    }
+}
+
+export function UserPostSuccess(posts){
     return {
-        type:'BOOK_SELECTED',
-        payload: book
-   };
+        type:USER_POST_SUCCESS,
+        payload:posts
+    };
 }

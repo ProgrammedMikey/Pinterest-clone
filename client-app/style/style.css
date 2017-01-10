@@ -1,3 +1,16 @@
+.imgSize {
+  /*max-height:400px;*/
+  max-width:280px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.cardStyle {
+  box-shadow: 0 3px 12px rgba(0,0,0,.23), 0 3px 12px rgba(0,0,0,.16);
+  margin: auto;
+  margin-bottom: 1em;
+  padding: 5px;
+  /*max-width: 400px;*/
+}
 body {
   background-color: #FFCC00;
   padding: 20px;

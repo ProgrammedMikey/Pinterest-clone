@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import * as thunkMiddleware from 'redux-thunk';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import * as actions from '../../actions';
 class PostsShow extends Component{
     static contextTypes= {
@@ -23,13 +24,25 @@ class PostsShow extends Component{
     renderPost(post){
         if(post){
         return (
-            <div>
-            <h3>{post.title}</h3>
+            // <div>
+            // <h3>{post.title}</h3>
+            //
+            // <p><img className="card-img-top" width="300" src={post.body} alt="Book image"> </img></p>
+            //     <br/>
+            //     {this.handleDeletePost()}
+            // </div>
+            <div className="card cardStyle">
+                <img className="card-img-top" src={post.body} alt="Book image"> </img>
 
-            <p>{post.body}</p>
-                <br/>
-                {this.handleDeletePost()}
-            </div>
+                <div className="card-block">
+                <h4 className="card-title"><center>{ post.title }</center></h4>
+
+            <Link to={"user/"+post.user_id}>
+                <span className="label label-default"> By: {post.name} </span>
+        </Link>
+
+        </div>
+        </div>
                );
         }
     }

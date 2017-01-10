@@ -17,6 +17,7 @@ import AuthCheck from './components/auth/auth_check';
 import AddPost from './components/posts/add_post';
 import PostsShow from './components/posts/posts_show';
 import EditPost from './components/posts/edit_post';
+import userPosts from './components/posts/user_posts';
 
 
 
@@ -42,6 +43,7 @@ ReactDOM.render(
         <Route path="post/add" component ={AuthCheck(AddPost)} />
         <Route path="posts/:id" component = {PostsShow} />
         <Route path="posts/:id/edit" component = {EditPost} />
+        <Route path="user/:id" component = {userPosts} />
       </Route>
     </Router>
   </Provider>

@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '780503545421428',
+        'client_secret' => 'af50db09bb85fc441ef02b81a9f7eacb',
+        'redirect' => 'http://pinterest.dev/callback',
+    ],
+
 ];

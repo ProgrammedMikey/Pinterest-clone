@@ -20,7 +20,7 @@ class Header extends Component {
         if(this.props.authenticated){
             return[
                 <li className="nav-item pull-xs-left" key={2}>
-                    <Link className="nav-item nav-link" to="/post/add">New Post</Link>
+                    <Link className="nav-item nav-link" to="/post/add">Add New Pin</Link>
                 </li>,
                 <li className="nav-item pull-xs-right" key={3}>
                     <Link className="nav-item nav-link" to="/logout">Logout</Link>
@@ -44,7 +44,7 @@ class Header extends Component {
         return (
             <div>
                 <Navbar color="faded" light>
-                <Link to="/" className="navbar-brand">My Blog</Link>
+                <Link to="/" className="navbar-brand">Pin-It</Link>
                     <Nav className="float-right" navbar>
                 <ul className="nav navbar-nav">
                     {this.renderLinks()}

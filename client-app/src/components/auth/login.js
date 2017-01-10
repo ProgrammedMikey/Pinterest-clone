@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import {reduxForm} from 'redux-form';
 import * as actions from '../../actions';
 import {browserHistory} from 'react-router';
+import AuthSocial from './auth_social.js';
+
 
 class Login extends Component{
   handleFormSubmit({email,password}){

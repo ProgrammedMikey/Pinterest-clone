@@ -11,6 +11,8 @@ Route::get('/', function (){
 
 
 Route::group(['prefix' => 'api'], function(){
+    Route::get('user/{id}', 'PostController@view_post');
+    
     Route::resource('posts', 'PostController');
 
     Route::get('userinfo', function () {
@@ -24,7 +26,11 @@ Route::group(['prefix' => 'api'], function(){
     Route::post('login',[
         'uses' => 'AuthenticateController@authenticate'
     ]);
-
+    
 });
+
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');
+
 
 

@@ -37,11 +37,13 @@ class PostController extends Controller
         }
 
         $user_id = $user-> id;
+        $user_name = $user-> name;
 
         $post = Post::create([
             'title' => $request->input("title"),
             'body' => $request->input('body'),
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'user_name' => $user_name
         ]);
 
         return response()->json("stored",200);

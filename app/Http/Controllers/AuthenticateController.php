@@ -15,13 +15,16 @@ class AuthenticateController extends Controller
     {
         $this->validate($request, [
             'email' => 'required|email',
-            'password' => 'required|min:5'
+            'password' => 'required|min:5',
+            'name' => 'required'
         ]);
 
+        $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
 
         $user = new User([
+            'name' => $name,
             'email' => $email,
             'password' => bcrypt($password)
         ]);

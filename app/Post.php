@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $table = "posts";
 
-    protected  $fillable = ['id','title','body', 'user_id'];
+    protected  $fillable = ['id','title','body', 'user_id', 'user_name'];
 
     public function user() { return $this->belongsTo('App\User'); }
 

@@ -10,7 +10,6 @@ Route::get('/', function (){
     return view('welcome');
 });
 
-Route::auth();
 
 Route::group(['prefix' => 'api'], function(){
     Route::get('user/{id}', 'PostController@view_post');

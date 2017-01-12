@@ -1,7 +1,7 @@
 <?php
 
-//header("Access-Control-Allow-Origin: *");
-header('Access-Control-Allow-Origin: https://mdasilva-pinterest.herokuapp.com');
+header("Access-Control-Allow-Origin: *");
+//header('Access-Control-Allow-Origin: https://mdasilva-pinterest.herokuapp.com');
 header("Access-Control-Allow-Headers: ACCEPT, CONTENT-TYPE, X-CSRF-TOKEN");
 header("Access-Control-Allow-Methods: GET, POST,PUT, OPTIONS, DELETE");
 header('Access-Control-Allow-Headers: X-Custom-Header');

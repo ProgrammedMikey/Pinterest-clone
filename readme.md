@@ -1,43 +1,13 @@
-# React-Redux-Laravel#
+# Pinterest Clone
 
-Boilerplate blog application for a Laravel JWT Backend and a React/Redux Front-End with Bootstrap 4.
-
-* Laravel 5.2
-* React
-* Redux
-* React-Router
-* Babel 6
-* Redux-Form
-* Webpack
-
-![screenshot](https://github.com/onerciller/react-redux-laravel/blob/master/public/img.png)
-
-##Installation
-
-### Laravel
-```sh
-$ composer update
-$ php artisan migrate 
-
-```
-
-### Install Front-End Requirements
-```sh
-$ cd client-app
-$ npm install
-```
-
-### Run Back-End
-
-```sh
-$ php artisan serve
-```
+### Live Version:
+https://mdasilva-pinterest.herokuapp.com/
 
 
-### Run Front-End
+## User stories: 
 
-```sh
-$ cd client-app
-$ npm start
-```
- 
+  - As an authenticated user, I can link to images.
+  - As an authenticated user, I can delete images that I've linked to.
+  - As an authenticated user, I can see a Pinterest-style wall of all the images I've linked to.
+  - As an unauthenticated user, I can browse other users' walls of images.
+  - As an authenticated user, if I upload an image that is broken, it will be replaced by a placeholder image.
